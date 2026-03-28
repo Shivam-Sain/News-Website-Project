@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const apiKey = 'bebaf189f40146639aa62fd20072b100'; // Replace with your actual API key
+  const apiKey = 'YOUR API KEY'; // Replace with your actual API key
   const newsContainer = document.getElementById('news-container');
   const searchButton = document.getElementById('search-button');
   const searchInput = document.getElementById('search-input');
