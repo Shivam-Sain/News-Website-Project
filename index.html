@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Website</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> <!-- Link to external CSS for custom styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- FontAwesome for icons -->
+  <style>
+    
+    /* Custom styles for navbar buttons */
+    .navbar-nav .nav-item {
+      margin-left: 10px;
+    }
+
+    .btn-custom {
+      margin-left: 5px;
+    }
+
+    .btn-login {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+    }
+
+    .btn-signup {
+      background-color: #fff;
+      color: #007bff;
+      border: none;
+    }
+
+    .btn-login:hover, .btn-signup:hover {
+      opacity: 0.9;
+    }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background-color: black;
+      margin: 20px 0; /* Space around the line */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <a class="navbar-brand" href="#">Today News</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <button class="btn btn-login btn-custom" data-toggle="modal" data-target="#loginModal">Log In</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-signup btn-custom" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Log In</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email:</label>
+              <input type="email" class="form-control" id="login-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password:</label>
+              <input type="password" class="form-control" id="login-password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Log In</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="signup-name">Name:</label>
+              <input type="text" class="form-control" id="signup-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="signup-email">Email:</label>
+              <input type="email" class="form-control" id="signup-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Password:</label>
+              <input type="password" class="form-control" id="signup-password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for sidebar and main content -->
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar border-right">
+        <div class="position-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home-content">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about-content">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-content">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-4">
+        <!-- Home Content -->
+        <section id="home-content" class="content-section mb-4">
+          <h1 class="text-center mb-4">Latest News</h1>
+
+          <!-- Search Bar -->
+          <div class="search-bar mb-4">
+            <div class="input-group">
+              <input type="text" class="form-control" id="search-input" placeholder="Search for news...">
+              <div class="input-group-append">
+                <button class="btn btn-primary" id="search-button">
+                  <i class="fas fa-search"></i> Search
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- News Container -->
+          <div id="news-container" class="row">
+            <!-- News cards will be dynamically inserted here -->
+          </div>
+        </section>
+
+        <!-- About Content -->
+        <section id="about-content" class="content-section mb-4">
+          <h2 class="mb-3">About Us</h2>
+          <p>At Today News, we are dedicated to bringing you the latest and most relevant news from around the globe. Our team of seasoned journalists and reporters work tirelessly to provide accurate, timely, and insightful coverage of current events, ensuring that you stay informed about the issues that matter most. We believe in the power of informed citizens and strive to deliver news that not only informs but also inspires. With a commitment to transparency and integrity, Today News aims to be your trusted source for breaking news and in-depth analysis. Thank you for choosing us as your news provider; we are excited to be part of your daily news journey.</p>
+        </section>
+        <hr class="divider">
+        <!-- Contact Content -->
+        <section id="contact-content" class="content-section mb-4">
+          <h2 class="mb-3">Contact Us</h2>
+          <p>We value your feedback and are here to assist you with any inquiries or concerns you may have. Whether you have questions about our content, suggestions for improvement, or need assistance with something specific, our team is eager to help. Please feel free to reach out to us via email at <a href="mailto:info@todaynews.com">info@todaynews.com</a>, and we will get back to you as soon as possible. For urgent matters or immediate assistance, you can also call us at 12345-00000. Your input is important to us, and we look forward to hearing from you!</p>
+
+          <!-- Feedback Form -->
+          <div class="feedback-form mt-4">
+            <h3 class="mb-3">Leave Us Feedback</h3>
+            <form id="feedback-form">
+              <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Send Feedback</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white text-center py-3 mt-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2024 News Website. All rights reserved.</p>
+      <p>Designed by Shivam and Shekhar</p>
+    </div>
+  </footer>
+
+  <!-- Spinner -->
+  <div id="spinner" class="text-center" style="display: none;">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+z
