@@ -35,7 +35,7 @@ Future Improvements<br>
 • Implement backend for authentication<br>
 • Improve UI/UX design<br>
 • Features for Like, Share, and comment on articles <br>
-• Add dark mode 🌙
+• Add dark mode 
 
 <br>
 Purpose of the Project — This project was developed to:<br>
